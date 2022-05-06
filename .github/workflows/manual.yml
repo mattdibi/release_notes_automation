@@ -19,6 +19,9 @@ on:
             - Minor
             - Micro
             - None
+        target_branch:
+          type: string
+          default: 'master'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
