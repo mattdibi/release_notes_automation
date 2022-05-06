@@ -8,12 +8,10 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      - name: Snapshot
-        boolean:
+        snapshot:
           type: boolean
-        description: Set the snapshot qualifier
-      - name: Uptick target
-        choice:
+          description: Set the snapshot qualifier
+        uptick_target:
           type: choice
           description: Transform version
           options:
@@ -41,7 +39,7 @@ jobs:
     # Make changes to pull request here
     - name: Run command in the shell
       run: |
-           echo ${{ github.event.inputs.choice }} >> README.md
+           echo ${{ github.event.inputs.uptick_target }} >> README.md
       shell: bash
 
     - name: Create Pull Request
