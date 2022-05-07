@@ -47,4 +47,5 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         title: "ci: Automated uptick for ${{ github.event.inputs.target_branch }}"
+        commit-message: "ci: Automated uptick for ${{ github.event.inputs.target_branch }}"
         branch-suffix: short-commit-hash
