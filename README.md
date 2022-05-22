@@ -4,5 +4,5 @@ Release Notes automation test repository
 
 Features:
 - Uptick Github workflow
-- Semantic Pull Request Application
-- Semantic Pull Request Application Configuration
+- Semantic Pull Request Action (Lint PR Workflow)
+- Semantic Pull Request Action Configuration
