@@ -49,9 +49,15 @@ Deprecated APIs:
   {{/commits}}
 {{/ifContainsType}}
 {{! Target Platform updates section }}
+{{#ifContainsType commits type='build'}}
 
-Target Platform updates:
-[WIP]
+Target Platform Updates:
+  {{#commits}}
+    {{#ifCommitType . type='build'}}
+  * {{firstLetters hash number='10'}} - {{{commitDescription .}}} ({{authorName}})
+    {{/ifCommitType}}
+  {{/commits}}
+{{/ifContainsType}}
 {{! Known issues section }}
 
 Known Issues:
