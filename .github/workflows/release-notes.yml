@@ -24,7 +24,7 @@ jobs:
 
     - name: Get version
       id: get-version
-      uses: jactions/maven-version@v1
+      uses: JActions/maven-version@v1.0.0
 
     - name: Download git-changelog-command-line tool
       id: download-changelog-cli
