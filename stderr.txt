@@ -1,0 +1,26 @@
+Warning: Nashorn engine is planned to be removed from a future JDK release
+Exception in thread "main" shadow.se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException: Repo: Repository[/home/runner/work/release_notes_automation/release_notes_automation/./.git]
+HEAD
+refs/heads/master
+refs/remotes/origin/master
+
+	at shadow.se.bjurr.gitchangelog.internal.git.GitRepo.getGitRepoData(GitRepo.java:119)
+	at shadow.se.bjurr.gitchangelog.api.GitChangelogApi.getChangelog(GitChangelogApi.java:640)
+	at shadow.se.bjurr.gitchangelog.api.GitChangelogApi.getChangelog(GitChangelogApi.java:85)
+	at shadow.se.bjurr.gitchangelog.api.GitChangelogApi.render(GitChangelogApi.java:117)
+	at shadow.se.bjurr.gitchangelog.api.GitChangelogApi.render(GitChangelogApi.java:141)
+	at shadow.se.bjurr.gitchangelog.api.GitChangelogApi.toFile(GitChangelogApi.java:159)
+	at se.bjurr.gitchangelog.main.Main.main(Main.java:701)
+Caused by: org.eclipse.jgit.errors.MissingObjectException: Missing commit 8e5add93a4d961692111d55ab9c5f510b2875b75
+	at org.eclipse.jgit.internal.storage.file.WindowCursor.open(WindowCursor.java:137)
+	at org.eclipse.jgit.revwalk.RevWalk.getCachedBytes(RevWalk.java:961)
+	at org.eclipse.jgit.revwalk.RevCommit.parseHeaders(RevCommit.java:126)
+	at org.eclipse.jgit.revwalk.RevWalk.markStart(RevWalk.java:299)
+	at org.eclipse.jgit.revwalk.RevWalk.markUninteresting(RevWalk.java:369)
+	at org.eclipse.jgit.api.LogCommand.add(LogCommand.java:346)
+	at org.eclipse.jgit.api.LogCommand.not(LogCommand.java:211)
+	at org.eclipse.jgit.api.LogCommand.addRange(LogCommand.java:244)
+	at shadow.se.bjurr.gitchangelog.internal.git.GitRepo.getCommitList(GitRepo.java:240)
+	at shadow.se.bjurr.gitchangelog.internal.git.GitRepo.gitTags(GitRepo.java:318)
+	at shadow.se.bjurr.gitchangelog.internal.git.GitRepo.getGitRepoData(GitRepo.java:116)
+	... 6 more
