@@ -14,6 +14,10 @@ Features:
     {{/ifCommitType}}
   {{/commits}}
 {{/ifContainsType}}
+{{! Target environments section }}
+
+Target Environments:
+[WIP]
 {{! Breaking changes section }}
 {{#ifContainsBreaking commits}}
 
@@ -44,8 +48,16 @@ Deprecated APIs:
     {{/ifCommitType}}
   {{/commits}}
 {{/ifContainsType}}
+{{! Target Platform updates section }}
 
+Target Platform updates:
+[WIP]
+{{! Known issues section }}
+
+Known Issues:
+[WIP]
 {{! Changelog section }}
+
 Changelog:
 {{#commits}}
   * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
