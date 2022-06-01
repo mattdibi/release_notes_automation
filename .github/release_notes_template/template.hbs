@@ -6,6 +6,7 @@ Description:
 {{#issues}}
 {{! Features section }}
 {{#ifContainsType commits type='feat'}}
+
 Features:
   {{#commits}}
     {{#ifCommitType . type='feat'}}
@@ -15,6 +16,7 @@ Features:
 {{/ifContainsType}}
 {{! Breaking changes section }}
 {{#ifContainsBreaking commits}}
+
 Breaking changes:
   {{#commits}}
     {{#ifCommitBreaking .}}
@@ -24,6 +26,7 @@ Breaking changes:
 {{/ifContainsBreaking}}
 {{! Bug Fixes section }}
 {{#ifContainsType commits type='fix'}}
+
 Bug Fixes:
   {{#commits}}
     {{#ifCommitType . type='fix'}}
@@ -33,6 +36,7 @@ Bug Fixes:
 {{/ifContainsType}}
 {{! Deprecated APIs section }}
 {{#ifContainsType commits type='deprecate'}}
+
 Deprecated APIs:
   {{#commits}}
     {{#ifCommitType . type='deprecate'}}
