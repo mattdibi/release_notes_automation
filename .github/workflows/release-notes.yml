@@ -22,6 +22,10 @@ jobs:
         ref: ${{ github.event.inputs.target_branch }}
         fetch-depth: '0'
 
+    - name: Get version
+      id: get-version
+      uses: jactions/maven-version@v1
+
     - name: Download git-changelog-command-line tool
       id: download-changelog-cli
       uses: clausnz/github-action-download-maven-artifact@master
@@ -35,11 +39,11 @@ jobs:
 
     - name: Generate Release Notes
       run: |
-        java -jar ${{ steps.download-changelog-cli.outputs.file }} -fc "${{ github.event.inputs.starting_commit }}" -ex "{\"version\":\"5.1.1\"}" -of RELEASE_NOTES.txt -t .github/release_notes_template/template.hbs -hhf .github/release_notes_template/helper.hbs
+        java -jar ${{ steps.download-changelog-cli.outputs.file }} -fc "${{ github.event.inputs.starting_commit }}" -ex "{\"version\":\"${{ steps.get-version.outputs.version }}\"}" -of RELEASE_NOTES.txt -t .github/release_notes_template/template.hbs -hhf .github/release_notes_template/helper.hbs
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        title: "chore: add Release Notes"
-        commit-message: "chore: add Release Notes"
+        title: "chore: add Release Notes for ${{ steps.get-version.outputs.version }} release"
+        commit-message: "chore: add Release Notes for ${{ steps.get-version.outputs.version }} release"
         branch-suffix: short-commit-hash
