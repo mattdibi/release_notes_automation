@@ -1,0 +1,49 @@
+Release Notes - April 2022
+-------------------------------------------------------------------------------------------------
+Description:
+[WIP]
+
+{{#issues}}
+
+  {{#ifContainsType commits type='feat'}}
+Features:
+    {{#commits}}
+      {{#ifCommitType . type='feat'}}
+  * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
+      {{/ifCommitType}}
+    {{/commits}}
+  {{/ifContainsType}}
+
+  {{#ifContainsBreaking commits}}
+Breaking changes:
+    {{#commits}}
+      {{#ifCommitBreaking .}}
+  * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
+      {{/ifCommitBreaking}}
+    {{/commits}}
+  {{/ifContainsBreaking}}
+
+  {{#ifContainsType commits type='fix'}}
+Bug Fixes:
+    {{#commits}}
+      {{#ifCommitType . type='fix'}}
+  * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
+      {{/ifCommitType}}
+    {{/commits}}
+  {{/ifContainsType}}
+
+  {{#ifContainsType commits type='deprecate'}}
+Deprecated APIs:
+{{#commits}}
+  {{#ifCommitType . type='deprecate'}}
+  * {{firstLetters hash number='10'}} - {{{commitDescription .}}} ({{authorName}})
+  {{/ifCommitType}}
+{{/commits}}
+  {{/ifContainsType}}
+
+Changelog:
+{{#commits}}
+  * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
+{{/commits}}
+
+{{/issues}}

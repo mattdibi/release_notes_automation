@@ -1,0 +1,13 @@
+Handlebars.registerHelper('firstLetters', function(input, options) {
+  const number = parseInt(options.hash['number'] || "0")
+  return input.substring(0,number);
+});
+
+Handlebars.registerHelper('startsWith', function(from, options) {
+  const s = options.hash['s']
+  if (new RegExp('^' + s + '.*').test(from)) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
