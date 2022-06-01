@@ -39,11 +39,16 @@ jobs:
 
     - name: Generate Release Notes
       run: |
-        java -jar ${{ steps.download-changelog-cli.outputs.file }} -fc "${{ github.event.inputs.starting_commit }}" -ex "{\"version\":\"${{ steps.get-version.outputs.version }}\"}" -of RELEASE_NOTES.txt -t .github/release_notes_template/template.hbs -hhf .github/release_notes_template/helper.hbs
+        java -jar ${{ steps.download-changelog-cli.outputs.file }} \
+        -fc "${{ github.event.inputs.starting_commit }}" \
+        -ex "{\"version\":\"${{ steps.get-version.outputs.version }}\"}" \
+        -t .github/release_notes_template/template.hbs \
+        -hhf .github/release_notes_template/helper.hbs \
+        -of RELEASE_NOTES.txt
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        title: "chore: add Release Notes for ${{ steps.get-version.outputs.version }} release"
-        commit-message: "chore: add Release Notes for ${{ steps.get-version.outputs.version }} release"
+        title: "chore: add Project ${{ steps.get-version.outputs.version }} release notes"
+        commit-message: "chore: add Project ${{ steps.get-version.outputs.version }} release notes"
         branch-suffix: short-commit-hash
