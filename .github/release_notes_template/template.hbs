@@ -4,7 +4,7 @@ Description:
 [WIP]
 
 {{#issues}}
-
+{{! Features section }}
 {{#ifContainsType commits type='feat'}}
 Features:
   {{#commits}}
@@ -13,7 +13,7 @@ Features:
     {{/ifCommitType}}
   {{/commits}}
 {{/ifContainsType}}
-
+{{! Breaking changes section }}
 {{#ifContainsBreaking commits}}
 Breaking changes:
   {{#commits}}
@@ -22,7 +22,7 @@ Breaking changes:
     {{/ifCommitBreaking}}
   {{/commits}}
 {{/ifContainsBreaking}}
-
+{{! Bug Fixes section }}
 {{#ifContainsType commits type='fix'}}
 Bug Fixes:
   {{#commits}}
@@ -31,7 +31,7 @@ Bug Fixes:
     {{/ifCommitType}}
   {{/commits}}
 {{/ifContainsType}}
-
+{{! Deprecated APIs section }}
 {{#ifContainsType commits type='deprecate'}}
 Deprecated APIs:
   {{#commits}}
@@ -41,9 +41,9 @@ Deprecated APIs:
   {{/commits}}
 {{/ifContainsType}}
 
+{{! Changelog section }}
 Changelog:
 {{#commits}}
   * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
 {{/commits}}
-
 {{/issues}}
