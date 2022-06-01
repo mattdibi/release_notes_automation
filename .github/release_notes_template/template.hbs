@@ -5,41 +5,41 @@ Description:
 
 {{#issues}}
 
-  {{#ifContainsType commits type='feat'}}
+{{#ifContainsType commits type='feat'}}
 Features:
-    {{#commits}}
-      {{#ifCommitType . type='feat'}}
+  {{#commits}}
+    {{#ifCommitType . type='feat'}}
   * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
-      {{/ifCommitType}}
-    {{/commits}}
-  {{/ifContainsType}}
+    {{/ifCommitType}}
+  {{/commits}}
+{{/ifContainsType}}
 
-  {{#ifContainsBreaking commits}}
+{{#ifContainsBreaking commits}}
 Breaking changes:
-    {{#commits}}
-      {{#ifCommitBreaking .}}
+  {{#commits}}
+    {{#ifCommitBreaking .}}
   * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
-      {{/ifCommitBreaking}}
-    {{/commits}}
-  {{/ifContainsBreaking}}
+    {{/ifCommitBreaking}}
+  {{/commits}}
+{{/ifContainsBreaking}}
 
-  {{#ifContainsType commits type='fix'}}
+{{#ifContainsType commits type='fix'}}
 Bug Fixes:
-    {{#commits}}
-      {{#ifCommitType . type='fix'}}
+  {{#commits}}
+    {{#ifCommitType . type='fix'}}
   * {{firstLetters hash number='10'}} - {{#eachCommitScope .}}[{{.}}] {{/eachCommitScope}}{{{commitDescription .}}} ({{authorName}})
-      {{/ifCommitType}}
-    {{/commits}}
-  {{/ifContainsType}}
+    {{/ifCommitType}}
+  {{/commits}}
+{{/ifContainsType}}
 
-  {{#ifContainsType commits type='deprecate'}}
+{{#ifContainsType commits type='deprecate'}}
 Deprecated APIs:
-{{#commits}}
-  {{#ifCommitType . type='deprecate'}}
+  {{#commits}}
+    {{#ifCommitType . type='deprecate'}}
   * {{firstLetters hash number='10'}} - {{{commitDescription .}}} ({{authorName}})
-  {{/ifCommitType}}
-{{/commits}}
-  {{/ifContainsType}}
+    {{/ifCommitType}}
+  {{/commits}}
+{{/ifContainsType}}
 
 Changelog:
 {{#commits}}
