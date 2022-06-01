@@ -1,0 +1,52 @@
+name: "Release Notes automation"
+
+on:
+  workflow_dispatch:
+    inputs:
+        target_branch:
+          type: string
+          default: 'master'
+
+jobs:
+  main:
+    name: Generate Release Notes
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout target branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.inputs.target_branch }}
+
+    - name: Download git-changelog-command-line tool
+      id: download-changelog-cli
+      uses: clausnz/github-action-download-maven-artifact@master
+      with:
+        url: 'https://repo1.maven.org'
+        repository: 'maven2'
+        groupId: 'se.bjurr.gitchangelog'
+        artifactId: 'git-changelog-command-line'
+        version: '1.100.2'
+        extension: 'jar'
+
+    # DEBUG
+    - name: Output file path
+      run: |
+        echo "File has been downloaded to ${{ steps.download-changelog-cli.outputs.file }}"
+
+    - name: Generate Release Notes
+      run: |
+        java -jar ${{ steps.download-changelog-cli.outputs.file }} --help # TODO
+
+    # DEBUG
+    - name: Run command in the shell
+      run: |
+           echo "TEST" >> README.md
+      shell: bash
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        title: "chore: add Release Notes"
+        commit-message: "chore: add Release Notes"
+        branch-suffix: short-commit-hash
