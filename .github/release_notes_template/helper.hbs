@@ -11,3 +11,15 @@ Handlebars.registerHelper('startsWith', function(from, options) {
     return options.inverse(this);
   }
 });
+
+Handlebars.registerHelper('date', function() {
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+  ];
+
+  const date = new Date();
+  const month = monthNames[date.getMonth()];
+  const year = date.getYear() + 1900;
+
+  return month + " " + year;
+});

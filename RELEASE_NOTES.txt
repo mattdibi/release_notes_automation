@@ -1,0 +1,47 @@
+Release Notes - June 2022
+-------------------------------------------------------------------------------------------------
+Description:
+[WIP]
+
+
+Features:
+  * d8942525b0 - add semantic pull request app configuration (#6) (Mattia Dal Ben)
+
+
+
+
+Changelog:
+  * 84fb7ddb11 - fetch all history (Mattia Dal Ben)
+  * 2983d8f209 - add git log for debugging (Mattia Dal Ben)
+  * 797b7b87a4 - added further debug setps (Mattia Dal Ben)
+  * cc29679b34 - add debug step (Mattia Dal Ben)
+  * 4d441195e8 - add complete Release Note generation workflow (Mattia Dal Ben)
+  * f6d29abbf2 - add git-changelog-cli template files (Mattia Dal Ben)
+  * f71641c363 - update with Release Notes generation workflow (Mattia Dal Ben)
+  * 5c6ea0a7e2 - add baseline Release Note generation workflow (Mattia Dal Ben)
+  * 1f78776b94 - remove scope list (Mattia Dal Ben)
+  * 70ac88eb77 - update with current configuration (#14) (Mattia Dal Ben)
+  * ab6155cf80 - fix workflow name (#13) (Mattia Dal Ben)
+  * c67bf643f6 - add available scopes (#12) (Mattia Dal Ben)
+  * 24ccbcd69e - add semantic pull requests linter workflow (#9) (Mattia Dal Ben)
+  * 75a5d60909 - add features to main README (#5) (Mattia Dal Ben)
+  * d8942525b0 - add semantic pull request app configuration (#6) (Mattia Dal Ben)
+  * 978da4aa86 - remove PR templates (Mattia Dal Ben)
+  * bc01c74f41 - pr template (Mattia Dal Ben)
+  * 5df83a5660 - remove broken template (Mattia Dal Ben)
+  * 0c379027e1 - add bug report template (Mattia Dal Ben)
+  * 6533df69e4 - fixes issue template (Mattia Dal Ben)
+  * f35bb60182 - add issue template (Mattia Dal Ben)
+  * e4c060cc93 - add PR template (Mattia Dal Ben)
+  * 40d4e4a708 - set commit message for PR (Mattia Dal Ben)
+  * a72e08618f - improved PR open behaviour (Mattia Dal Ben)
+  * 8e5add93a4 - remove unnecessary step (Mattia Dal Ben)
+  * 02888dd3ae - add functional target branch selection (Mattia Dal Ben)
+  * 72cb6848a6 - change workflow name (Mattia Dal Ben)
+  * 1246ffbbbc - add branch input for manual workflow (Mattia Dal Ben)
+  * afba3c9acb - fix worflow file syntax (Mattia Dal Ben)
+  * e3416891f6 - add mock-up upticker tool inputs (Mattia Dal Ben)
+  * 24bd8afafd - add test workflow (Mattia Dal Ben)
+  * a2dac067e7 - create manual.yml (#1) (Mattia Dal Ben)
+  * c820053910 -  (Mattia Dal Ben)
+
