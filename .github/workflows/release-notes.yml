@@ -6,6 +6,9 @@ on:
         target_branch:
           type: string
           default: 'master'
+        starting_commit:
+          type: string
+          description: Commit from which to start generating the Release Notes
 
 jobs:
   main:
@@ -36,13 +39,7 @@ jobs:
 
     - name: Generate Release Notes
       run: |
-        java -jar ${{ steps.download-changelog-cli.outputs.file }} --help # TODO
-
-    # DEBUG
-    - name: Run command in the shell
-      run: |
-           echo "TEST" >> README.md
-      shell: bash
+        java -jar ${{ steps.download-changelog-cli.outputs.file }} -fc "${{ github.event.inputs.starting_commit }}" -of RELEASE_NOTES.txt -t .github/release_notes_template/template.hbs -hhf .github/release_notes_template/helper.hbs
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
