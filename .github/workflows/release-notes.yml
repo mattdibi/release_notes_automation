@@ -20,6 +20,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: ${{ github.event.inputs.target_branch }}
+        fetch-depth: '0'
 
     - name: Download git-changelog-command-line tool
       id: download-changelog-cli
@@ -32,14 +33,9 @@ jobs:
         version: '1.100.2'
         extension: 'jar'
 
-    # DEBUG
-    - name: Git log
-      run: |
-        git --no-pager log --oneline
-
     - name: Generate Release Notes
       run: |
-        java -jar ${{ steps.download-changelog-cli.outputs.file }} -fc "${{ github.event.inputs.starting_commit }}" -of RELEASE_NOTES.txt -t .github/release_notes_template/template.hbs -hhf .github/release_notes_template/helper.hbs > stdout.txt 2> stderr.txt || true
+        java -jar ${{ steps.download-changelog-cli.outputs.file }} -fc "${{ github.event.inputs.starting_commit }}" -of RELEASE_NOTES.txt -t .github/release_notes_template/template.hbs -hhf .github/release_notes_template/helper.hbs
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
