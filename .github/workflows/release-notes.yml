@@ -32,10 +32,9 @@ jobs:
         version: '1.100.2'
         extension: 'jar'
 
-    # DEBUG
-    - name: Output file path
+    - name: Debug
       run: |
-        echo "File has been downloaded to ${{ steps.download-changelog-cli.outputs.file }}"
+        java -jar ${{ steps.download-changelog-cli.outputs.file }} --help
 
     - name: Generate Release Notes
       run: |
