@@ -4,15 +4,13 @@ on:
   workflow_dispatch:
     inputs:
         target_branch:
-          type: choice
-          options:
-            - release-1.0.0
-            - release-2.0.0
-            - release-3.0.0
-            - release-4.0.0
+          type: string
+          default: 'master'
+          required: true
         starting_commit:
           type: string
           description: Commit from which to start generating the Release Notes
+          required: true
 
 jobs:
   main:
