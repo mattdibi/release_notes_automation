@@ -6,6 +6,7 @@ on:
         target_branch:
           type: string
           default: 'master'
+          description: Target branch
           required: true
         starting_commit:
           type: string
