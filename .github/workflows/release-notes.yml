@@ -54,4 +54,5 @@ jobs:
       with:
         title: "chore: add Project ${{ steps.get-version.outputs.version }} release notes"
         commit-message: "chore: add Project ${{ steps.get-version.outputs.version }} release notes"
+        body: "Automated changes by Release Notes automation action: add Project ${{ steps.get-version.outputs.version }} version release notes""
         branch-suffix: short-commit-hash
