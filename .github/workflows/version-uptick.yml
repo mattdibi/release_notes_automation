@@ -30,7 +30,7 @@ jobs:
 
     - name: Use configuration files from default branch
       run: |
-        git restore --source master -- .github
+        git restore --source origin/master -- .github
 
     - name: Download ESF version upticker tool
       uses: carlosperate/download-file-action@v1
