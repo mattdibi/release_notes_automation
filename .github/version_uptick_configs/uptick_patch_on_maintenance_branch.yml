@@ -10,8 +10,9 @@ exclusions:
 
 tasks:
   - selector:
-      snapshot
+      release
     actions:
       - print
       - transform_version:
         - add_patch: 1
+        - snapshot: set
