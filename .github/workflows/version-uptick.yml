@@ -29,9 +29,10 @@ jobs:
 
     # TODO Download uptick tool binary
     - name: Download ESF version upticker tool
-      uses: wei/wget@v1
+      uses: carlosperate/download-file-action@v1
       with:
-        args: https://kura-repo.s3.us-west-2.amazonaws.com/kura_addons/README.md
+        file-url: https://kura-repo.s3.us-west-2.amazonaws.com/kura_addons/README.md
+        file-name: newREADME.md
 
     # TODO Run uptick tool with the desired configuration
     - name: Run the uptick tool
