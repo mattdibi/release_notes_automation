@@ -31,12 +31,11 @@ jobs:
     - name: Download ESF version upticker tool
       uses: carlosperate/download-file-action@v1
       with:
-        file-url: https://kura-repo.s3.us-west-2.amazonaws.com/kura_addons/README.md
-        file-name: newREADME.md
+        file-url: https://kura-repo.s3.us-west-2.amazonaws.com/esf_upticker_tool/version-uptick-0.1.0-linux-x86_64
 
     # TODO Run uptick tool with the desired configuration
     - name: Run the uptick tool
-      run: cat .github/version_uptick_configs/${{ github.event.inputs.uptick_config }}
+      run: version-uptick-0.1.0-linux-x86_64 --commit --trace process-versions --config-path .github/version_uptick_configs/${{ github.event.inputs.uptick_config }} --root-dir .
       shell: bash
 
     - name: Get version
