@@ -1,4 +1,4 @@
-name: Version uptick automation
+name: Test workflow
 
 on:
   workflow_dispatch:
