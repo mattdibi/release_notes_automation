@@ -34,7 +34,7 @@ jobs:
 
     # TODO Run uptick tool with the desired configuration
     - name: Run the uptick tool
-      run: echo ${{ github.event.inputs.uptick_config }}
+      run: cat .github/version_uptick_configs/${{ github.event.inputs.uptick_config }}
       shell: bash
 
     - name: Get version
