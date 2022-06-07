@@ -27,6 +27,10 @@ jobs:
       with:
         ref: ${{ github.event.inputs.target_branch }}
 
+    - name: Use configuration files from default branch
+      run: |
+        git checkout master .github
+
     - name: Download ESF version upticker tool
       uses: carlosperate/download-file-action@v1
       with:
@@ -48,7 +52,7 @@ jobs:
     - name: Cleanup uptick tool
       run: |
         rm ./version-uptick-0.1.0-linux-x86_64
-        git checkout master .github
+        git checkout ${{ github.event.inputs.target_branch }} .github
       shell: bash
 
     - name: Get version
