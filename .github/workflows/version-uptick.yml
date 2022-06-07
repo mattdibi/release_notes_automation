@@ -40,6 +40,10 @@ jobs:
       run: ./version-uptick-0.1.0-linux-x86_64 --commit --trace process-versions --config-path .github/version_uptick_configs/${{ github.event.inputs.uptick_config }} --root-dir .
       shell: bash
 
+    - name: Cleanup uptick tool
+      run: rm ./version-uptick-0.1.0-linux-x86_64
+      shell: bash
+
     - name: Get version
       id: get-version
       uses: JActions/maven-version@v1.0.0
