@@ -1,4 +1,4 @@
-name: Version uptick
+name: Version uptick automation
 
 on:
   workflow_dispatch:
