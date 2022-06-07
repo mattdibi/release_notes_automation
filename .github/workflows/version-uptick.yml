@@ -1,0 +1,50 @@
+name: Version uptick
+
+on:
+  workflow_dispatch:
+    inputs:
+        target_branch:
+          type: string
+          default: 'develop'
+          required: true
+        uptick_config:
+          type: choice
+          description: Configuration to use for the uptick
+          options:
+            - release_maintenance_branch.yml
+            - uptick_patch_maintenance_branch.yml
+            - uptick_minor_develop_branch.yml
+            - uptick_major_develop_branch.yml
+          required: true
+
+jobs:
+  uptick:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.inputs.target_branch }}
+
+    # TODO Download uptick tool binary
+    - name: Download ESF version upticker tool
+      run: echo "TODO"
+      shell: bash
+
+    # TODO Run uptick tool with the desired configuration
+    - name: Run the uptick tool
+      run: echo ${{ github.event.inputs.uptick_config }}
+      shell: bash
+
+    - name: Get version
+      id: get-version
+      uses: JActions/maven-version@v1.0.0
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        title: "chore: automated uptick for ${{ steps.get-version.outputs.version }}"
+        commit-message: "chore: automated uptick for ${{ steps.get-version.outputs.version }}"
+        body: "Automated changes by _Version uptick automation_ action: add Project ${{ steps.get-version.outputs.version }} version release notes"
+        branch-suffix: short-commit-hash
