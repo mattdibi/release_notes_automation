@@ -12,9 +12,9 @@ on:
           description: Configuration to use for the uptick
           options:
             - release_maintenance_branch.yml
-            - uptick_patch_maintenance_branch.yml
-            - uptick_minor_develop_branch.yml
-            - uptick_major_develop_branch.yml
+            - uptick_major_on_develop_branch.yml
+            - uptick_minor_on_develop_branch.yml
+            - uptick_patch_on_maintenance_branch.yml
           required: true
 
 jobs:
