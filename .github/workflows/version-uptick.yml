@@ -22,11 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout default branch
-      uses: actions/checkout@v3
-      with:
-        path: ./master
-
     - name: Checkout
       uses: actions/checkout@v3
       with:
@@ -46,14 +41,13 @@ jobs:
       run: |
         ./version-uptick-0.1.0-linux-x86_64 \
         --commit --trace process-versions \
-        --config-path ./master/.github/version_uptick_configs/${{ github.event.inputs.uptick_config }} \
+        --config-path .github/version_uptick_configs/${{ github.event.inputs.uptick_config }} \
         --root-dir .
       shell: bash
 
-    - name: Cleanup workdir
+    - name: Cleanup uptick tool
       run: |
         rm ./version-uptick-0.1.0-linux-x86_64
-        rm -rf ./master
       shell: bash
 
     - name: Get version
