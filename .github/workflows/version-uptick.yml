@@ -54,7 +54,7 @@ jobs:
       run: |
         rm ./version-uptick-0.1.0-linux-x86_64
         rm -rf .github
-        git checkout ${{ github.event.inputs.target_branch }} -- .github
+        git restore .github
       shell: bash
 
     - name: Get version
