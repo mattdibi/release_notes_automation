@@ -30,7 +30,7 @@ jobs:
 
     - name: Use configuration files from default branch
       run: |
-        git restore --source origin/master -- .github
+        git restore --source `git rev-parse --abbrev-ref origin/HEAD` -- .github
 
     - name: Debug
       run: |
