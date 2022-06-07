@@ -35,7 +35,7 @@ jobs:
 
     # TODO Run uptick tool with the desired configuration
     - name: Run the uptick tool
-      run: version-uptick-0.1.0-linux-x86_64 --commit --trace process-versions --config-path .github/version_uptick_configs/${{ github.event.inputs.uptick_config }} --root-dir .
+      run: ./version-uptick-0.1.0-linux-x86_64 --commit --trace process-versions --config-path .github/version_uptick_configs/${{ github.event.inputs.uptick_config }} --root-dir .
       shell: bash
 
     - name: Get version
