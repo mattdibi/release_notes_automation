@@ -27,11 +27,6 @@ jobs:
       with:
         ref: ${{ github.event.inputs.target_branch }}
 
-    - name: Checkout default branch
-      uses: actions/checkout@v3
-      with:
-        path: main
-
     - name: Download ESF version upticker tool
       uses: carlosperate/download-file-action@v1
       with:
@@ -46,14 +41,13 @@ jobs:
       run: |
         ./version-uptick-0.1.0-linux-x86_64 \
         --commit --trace process-versions \
-        --config-path main/.github/version_uptick_configs/${{ github.event.inputs.uptick_config }} \
+        --config-path .github/version_uptick_configs/${{ github.event.inputs.uptick_config }} \
         --root-dir .
       shell: bash
 
     - name: Cleanup uptick tool
       run: |
         rm ./version-uptick-0.1.0-linux-x86_64
-        rm -rf main
       shell: bash
 
     - name: Get version
