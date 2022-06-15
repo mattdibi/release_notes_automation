@@ -1,4 +1,4 @@
-# release_notes_automation
+# Release Notes Automation
 
 Release Notes automation test repository
 
