@@ -1,6 +1,6 @@
 # release_notes_automation
 
-Release Notes automation test repository
+Release Notes automation test repository.
 
 Features:
 - Uptick Github workflow
