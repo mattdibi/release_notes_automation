@@ -28,6 +28,8 @@ jobs:
     - name: Get version
       id: get-version
       uses: JActions/maven-version@v1.0.0
+      with:
+        pom: ./src/pom.xml
 
     - name: Download git-changelog-command-line tool
       id: download-changelog-cli
