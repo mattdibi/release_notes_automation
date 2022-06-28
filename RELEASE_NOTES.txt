@@ -1,0 +1,25 @@
+Project Name - [ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:3.0.0:exec (default-cli): Goal requires a project to execute but there is no POM in this directory (/home/runner/work/release_notes_automation/release_notes_automation). Please verify you invoked Maven from the correct directory. -&gt; [Help 1] - June 2022
+-------------------------------------------------------------------------------------------------
+Description:
+[WIP]
+
+
+Target Environments:
+[WIP]
+
+Known Issues:
+[WIP]
+
+Changelog:
+  * db445698e4 - updated path to pom.xml (Mattia Dal Ben)
+  * ac91e86ee7 - moved root pom (Mattia Dal Ben)
+  * 70fbe29fca - updated docs (#44) (Mattia Dal Ben)
+  * 6285431dd7 - set correct template for backport (Mattia Dal Ben)
+  * af26300d01 - [readme] update reference to backport (#43) (Mattia Dal Ben)
+  * 4d5924e33a - update backport (Mattia Dal Ben)
+  * 39e140a5fa - add full stop (#41) (Mattia Dal Ben)
+  * f697b38caa - [readme] fix title (#40) (Mattia Dal Ben)
+  * 082384a08d - fix backport title (Mattia Dal Ben)
+  * fe67468460 - [readme] fix title (#38) (Mattia Dal Ben)
+  * 20e65c0abd - fix title template (Mattia Dal Ben)
+  * 7b88f95a06 - [readme] add reference to backport action (#36) (Mattia Dal Ben)
