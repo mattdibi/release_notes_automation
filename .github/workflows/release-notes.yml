@@ -27,7 +27,7 @@ jobs:
 
     - name: Get version
       id: get-version
-      uses: JActions/maven-version@1
+      uses: JActions/maven-version@v1
       with:
         pom: ./src/pom.xml
 
