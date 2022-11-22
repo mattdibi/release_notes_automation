@@ -1,0 +1,22 @@
+Project Name - 0.0.1-SNAPSHOT - November 2022
+-------------------------------------------------------------------------------------------------
+Description:
+[WIP]
+
+
+Features:
+  * 9c4f221c05 - update release notes action dependency (Mattia Dal Ben)
+
+Target Environments:
+[WIP]
+
+Known Issues:
+[WIP]
+
+Changelog:
+  * 8f582be2cd - improve information given by Release Notes action (Mattia Dal Ben)
+  * 9c4f221c05 - update release notes action dependency (Mattia Dal Ben)
+  * e4ba345cd1 - add note in readme (#50) (Mattia Dal Ben)
+  * db445698e4 - updated path to pom.xml (Mattia Dal Ben)
+  * ac91e86ee7 - moved root pom (Mattia Dal Ben)
+  * 70fbe29fca - updated docs (#44) (Mattia Dal Ben)
