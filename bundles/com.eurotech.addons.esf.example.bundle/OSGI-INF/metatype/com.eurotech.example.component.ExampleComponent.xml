@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2019 Eurotech and/or its affiliates. All rights reserved.
+-->
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0"
+	localization="en_us">
+	<OCD id="com.eurotech.example.component.ExampleComponent" name="ExampleComponent"
+		description="An example configurable component implementation.">
+
+		<AD id="example.property"
+			name="An example property"
+			type="String"
+			cardinality="0"
+			required="true"
+			default="foo"
+			description="An example string property." />
+
+	</OCD>
+
+	<Designate pid="com.eurotech.example.component.ExampleComponent">
+		<Object ocdref="com.eurotech.example.component.ExampleComponent" />
+	</Designate>
+</MetaData>

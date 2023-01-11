@@ -1,0 +1,106 @@
+/** Add css rules here for your application. */
+
+#south-panel-wrapper table td:first-of-type div {
+	display: none;
+}
+
+div.copyright:after {
+	content: ' Eurotech and/or its affiliates.  All rights reserved.';
+}
+
+@media screen and (min-width: 768px) {
+
+.content-panel .navbar-nav li.active {
+	border-bottom: solid 0.1cm #97be0d;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+
+.content-panel .navbar-nav  li.active a {
+	border-left: solid 0.1cm #97be0d;
+}
+
+}
+
+.sidenav, .sidenav .panel, .sidenav .center-panel, .sidenav .panel-headning, .sidenav .row {
+	background-color: rgb(232, 235, 237) !important;
+}
+
+.sidenav .nav a:hover, .sidenav .nav a:active {
+	border-left: solid 0.1cm #4d555b;
+	background-color: white;
+}
+
+.sidenav .nav a {
+	border-radius: 0;
+	border-left: solid 0.1cm rgb(226, 230, 233);
+	color: #4d555b;
+}
+
+.sidenav .nav li.selected-item a {
+	border-left: solid 0.1cm #97be0d;
+	background-color: white;
+}
+
+.btn:not(.sidebar-button) {
+	background-color: #4d555b !important;
+	color: white !important;
+}
+
+.nav-tabs li.active {
+	border-bottom: solid 0.1cm #97be0d;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	font-weight: bold;
+}
+
+.sidenav .nav li a {
+	padding: 7px 15px;
+}
+
+.rowHeader {
+    background-color: rgba(151, 190, 13, 0) !important;
+    border-bottom: solid 0.1cm #97be0d;
+    border-top: solid rgba(151, 190, 13, 0) 0.2cm;
+    font-size: 14px !important;
+    color: #4d555b !important;
+    font-weight: bold;
+    pointer-events: none !important;
+}
+
+div.headerLogo {
+	height:				39px;
+	width: 				150px;
+	margin: 			2px 0px 0px 15px;
+	vertical-align: 	baseline;
+	background: 		url(eurotech_everyware_gateway.png);
+	background-repeat: 	no-repeat;
+	background-size: 	contain;
+}
+
+div.headerLogo-ie8 {
+	height:			   39px;
+	width:             150px;
+	margin:	           2px 0px 0px 15px;
+	vertical-align:    baseline;
+	background-repeat: no-repeat;
+	background-size:   contain;
+	/* IE 8 Hack */
+	filter:            progid:DXImageTransform.Microsoft.AlphaImageLoader(src='eurotech_everyware_gateway.png',sizingMethod='scale');
+	-ms-filter:        "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='eurotech_everyware_gateway.png',sizingMethod='scale')";
+}
+
+.login-background {
+    background-image: url(eurotech_logo.png),url(esf_logo.png),url(esf_login_background.png);
+	background-position: 50% 5%,50% 90%,center;
+	background-size: 200px,1000px,cover;
+}
+
+@media screen and (max-width: 992px) {
+	.login-background {
+    	background-size: 200px,90%,cover;
+	}
+}
