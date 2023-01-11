@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esf:security xmlns:esf="http://eurotech.com/esf/2.0" version="1">
+  <esf:properties>
+    <esf:property>
+      <esf:name>permit-debug</esf:name>
+      <esf:value>true</esf:value>
+    </esf:property>
+  </esf:properties>
+  <esf:policies>
+    <esf:policy>
+      <esf:access>ALLOW</esf:access>
+      <esf:permissions>
+        <esf:permission>
+          <esf:name>java.security.AllPermission</esf:name>
+          <esf:values>
+            <esf:value>
+              *
+            </esf:value>
+            <esf:value>
+              *
+            </esf:value>
+          </esf:values>
+        </esf:permission>
+      </esf:permissions>
+      <esf:name>
+        All permissions to everyone
+      </esf:name>
+    </esf:policy>
+  </esf:policies>
+</esf:security>
