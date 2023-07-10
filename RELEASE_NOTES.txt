@@ -1,0 +1,25 @@
+Project Name - [ERROR] [ERROR] Some problems were encountered while processing the POMs: - July 2023
+-------------------------------------------------------------------------------------------------
+Description:
+[WIP]
+
+
+Features:
+  * 9313b50b53 - first time setup workflow (#56) (Mattia Dal Ben)
+
+Target Environments:
+[WIP]
+
+Bug Fixes:
+  * 05b8beab56 - forgotten line (Mattia Dal Ben)
+
+Known Issues:
+[WIP]
+
+Changelog:
+  * 87506a922a -  (Mattia Dal Ben)
+  * c8ea42615d -  (Mattia Dal Ben)
+  * 05b8beab56 - forgotten line (Mattia Dal Ben)
+  * 1bf97d02ed - remove parameter (Mattia Dal Ben)
+  * 110b207544 - update first time setup workflow (Mattia Dal Ben)
+  * 9313b50b53 - first time setup workflow (#56) (Mattia Dal Ben)
