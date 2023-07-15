@@ -3,11 +3,6 @@ name: "Release Notes automation"
 on:
   workflow_dispatch:
     inputs:
-        target_branch:
-          type: string
-          default: 'master'
-          description: Target branch
-          required: true
         starting_commit:
           type: string
           description: Commit from which to start generating the Release Notes (non-inclusive)
@@ -19,17 +14,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout target branch
+    - name: Checkout ${{ github.ref }} branch in ${{ github.repository }} repository.
       uses: actions/checkout@v3
       with:
-        ref: ${{ github.event.inputs.target_branch }}
         fetch-depth: '0'
 
     - name: Get version
       id: get-version
-      uses: JActions/maven-version@v1.0.1
-      with:
-        pom: ./src/pom.xml
+      run: "echo \"resolved-version=\
+        $(mvn
+          --file ./pom.xml
+          -Dexec.executable=echo
+          -Dexec.args='${project.version}'
+          --quiet exec:exec --non-recursive
+        )\" >> \"${GITHUB_OUTPUT}\""
+      shell: bash
 
     - name: Download git-changelog-command-line tool
       id: download-changelog-cli
@@ -46,7 +45,7 @@ jobs:
       run: |
         java -jar ${{ steps.download-changelog-cli.outputs.file }} \
         -fc "${{ github.event.inputs.starting_commit }}" \
-        -ex "{\"version\":\"${{ steps.get-version.outputs.version }}\"}" \
+        -ex "{\"version\":\"${{ steps.get-version.outputs.resolved-version }}\"}" \
         -t .github/release_notes_template/template.hbs \
         -hhf .github/release_notes_template/helper.hbs \
         -of RELEASE_NOTES.txt
@@ -54,7 +53,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
       with:
-        title: "chore: add Project ${{ steps.get-version.outputs.version }} release notes"
-        commit-message: "chore: add Project ${{ steps.get-version.outputs.version }} release notes"
-        body: "Automated changes by _Release Notes automation_ action: add Project ${{ steps.get-version.outputs.version }} version release notes since commit `${{ github.event.inputs.starting_commit }}`"
+        title: "chore: add Project ${{ steps.get-version.outputs.resolved-version }} release notes"
+        commit-message: "chore: add Project ${{ steps.get-version.outputs.resolved-version }} release notes"
+        body: "Automated changes by _Release Notes automation_ action: add Project ${{ steps.get-version.outputs.resolved-version }} version release notes since commit `${{ github.event.inputs.starting_commit }}`"
         branch-suffix: timestamp
