@@ -11,6 +11,8 @@ Features:
 
 
 Bug Fixes:
+  * e13454eea2 - a fix for another bug (Mattia Dal Ben)
+  * 1f82d952f0 - a fix for a bug (Mattia Dal Ben)
   * 05b8beab56 - forgotten line (Mattia Dal Ben)
   * 81e1576579 - removed accidental upload (Mattia Dal Ben)
 
@@ -21,6 +23,9 @@ Known Issues:
 - Issue 1: Security issue
 
 Changelog:
+  * e13454eea2 - a fix for another bug (Mattia Dal Ben)
+  * 1f82d952f0 - a fix for a bug (Mattia Dal Ben)
+  * 313af3834c - add Project 1.0.1 release notes (#61) (github-actions[bot])
   * 3427c00eca - update template (Mattia Dal Ben)
   * 73404b94d8 - update release notes workflow (Mattia Dal Ben)
   * 3d306bb8a1 - add pom.xml (Mattia Dal Ben)
