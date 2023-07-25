@@ -1,15 +1,14 @@
 Project Name - 1.0.1 - July 2023
 -------------------------------------------------------------------------------------------------
 Description:
-[WIP]
-
+A meaningful description. Totally useful.
 
 Features:
   * 9313b50b53 - first time setup workflow (#56) (Mattia Dal Ben)
   * 9c4f221c05 - update release notes action dependency (Mattia Dal Ben)
 
 Target Environments:
-[WIP]
+- None
 
 Bug Fixes:
   * 05b8beab56 - forgotten line (Mattia Dal Ben)
@@ -18,7 +17,7 @@ Target Platform Updates:
   * 3d306bb8a1 - add pom.xml (Mattia Dal Ben)
 
 Known Issues:
-[WIP]
+- I'm tired
 
 Changelog:
   * 73404b94d8 - update release notes workflow (Mattia Dal Ben)
