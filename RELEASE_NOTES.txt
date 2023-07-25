@@ -1,0 +1,57 @@
+Project Name - 1.0.1 - July 2023
+-------------------------------------------------------------------------------------------------
+Description:
+[WIP]
+
+
+Features:
+  * 9313b50b53 - first time setup workflow (#56) (Mattia Dal Ben)
+  * 9c4f221c05 - update release notes action dependency (Mattia Dal Ben)
+
+Target Environments:
+[WIP]
+
+Bug Fixes:
+  * 05b8beab56 - forgotten line (Mattia Dal Ben)
+
+Target Platform Updates:
+  * 3d306bb8a1 - add pom.xml (Mattia Dal Ben)
+
+Known Issues:
+[WIP]
+
+Changelog:
+  * 73404b94d8 - update release notes workflow (Mattia Dal Ben)
+  * 3d306bb8a1 - add pom.xml (Mattia Dal Ben)
+  * 87506a922a -  (Mattia Dal Ben)
+  * c8ea42615d -  (Mattia Dal Ben)
+  * 05b8beab56 - forgotten line (Mattia Dal Ben)
+  * 1bf97d02ed - remove parameter (Mattia Dal Ben)
+  * 110b207544 - update first time setup workflow (Mattia Dal Ben)
+  * 9313b50b53 - first time setup workflow (#56) (Mattia Dal Ben)
+  * cb94b7a718 - remove obsolete reusable workflow call (Mattia Dal Ben)
+  * df1ee02e55 - fix path (Mattia Dal Ben)
+  * 35e7212d64 - avoid using action for retrieving version info (Mattia Dal Ben)
+  * 107e5811fb - add reusable workflow demo (Mattia Dal Ben)
+  * 8f582be2cd - improve information given by Release Notes action (Mattia Dal Ben)
+  * 9c4f221c05 - update release notes action dependency (Mattia Dal Ben)
+  * e4ba345cd1 - add note in readme (#50) (Mattia Dal Ben)
+  * db445698e4 - updated path to pom.xml (Mattia Dal Ben)
+  * ac91e86ee7 - moved root pom (Mattia Dal Ben)
+  * 70fbe29fca - updated docs (#44) (Mattia Dal Ben)
+  * 6285431dd7 - set correct template for backport (Mattia Dal Ben)
+  * af26300d01 - [readme] update reference to backport (#43) (Mattia Dal Ben)
+  * 4d5924e33a - update backport (Mattia Dal Ben)
+  * 39e140a5fa - add full stop (#41) (Mattia Dal Ben)
+  * f697b38caa - [readme] fix title (#40) (Mattia Dal Ben)
+  * 082384a08d - fix backport title (Mattia Dal Ben)
+  * fe67468460 - [readme] fix title (#38) (Mattia Dal Ben)
+  * 20e65c0abd - fix title template (Mattia Dal Ben)
+  * 7b88f95a06 - [readme] add reference to backport action (#36) (Mattia Dal Ben)
+  * 53f4cebe46 - add backport action (Mattia Dal Ben)
+  * a224bd63c1 - remove borked workflow (Mattia Dal Ben)
+  * d2c575fdf0 - add improved uptick tool version (Mattia Dal Ben)
+  * f32d1ba595 - restore single branch version (Mattia Dal Ben)
+  * c18679cde5 - improve default branch checkout (Mattia Dal Ben)
+  * 715aa3a96f - remove debug step (Mattia Dal Ben)
+  * 99c6e8ef9b - "ci: not hardcode default branch" (Mattia Dal Ben)
