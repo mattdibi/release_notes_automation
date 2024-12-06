@@ -28,14 +28,5 @@ jobs:
 
             return { forceMergeComments };
 
-      - name: Squash and merge pull request
-        if: steps.check_force_merge.outputs.forceMergeComments.length >= 3
-        uses: octokit/request-action@v2.x
-        with:
-          route: PUT /repos/:owner/:repo/pulls/:pull_number/merge
-          pull_number: ${{ github.event.issue.number }}
-          repo: ${{ github.event.repository.name }}
-          owner: ${{ github.event.repository.owner.login }}
-          merge_method: squash
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print the list of users who have used the /force-merge command
+        run: echo "Users who have used the /force-merge command: ${{ steps.check_force_merge.outputs.forceMergeComments }}"
