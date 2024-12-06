@@ -1,0 +1,41 @@
+name: Force merge
+description: Merge a pull request when 3 committers post a comment with the command /force-merge
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  force_merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check for /force-merge command
+        id: check_force_merge
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.issue;
+            const comment = context.payload.comment.body;
+            const { data: comments } = await github.issues.listComments({
+              ...issue,
+              per_page: 100
+            });
+
+            // Check if the comment contains the /force-merge command and if the author is a member without accepting duplicates
+            const forceMergeComments = comments.filter(comment => comment.body.includes('/force-merge') && comment.user.type === 'User').map(comment => comment.user.login);
+
+            return { forceMergeComments };
+
+      - name: Squash and merge pull request
+        if: steps.check_force_merge.outputs.forceMergeComments.length >= 3
+        uses: octokit/request-action@v2.x
+        with:
+          route: PUT /repos/:owner/:repo/pulls/:pull_number/merge
+          pull_number: ${{ github.event.issue.number }}
+          repo: ${{ github.event.repository.name }}
+          owner: ${{ github.event.repository.owner.login }}
+          merge_method: squash
+          headers:
+            authorization: ${{ secrets.GITHUB_TOKEN }}
