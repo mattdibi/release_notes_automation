@@ -29,4 +29,4 @@ jobs:
             return { forceMergeComments };
 
       - name: Print the list of users who have used the force-merge command
-        run: echo "Users who have used the force-merge command: ${{ steps.check_force_merge.outputs.forceMergeComments }}"
+        run: "echo \"Users who have used the force-merge command: ${{ steps.check_force_merge.outputs.forceMergeComments }}\""
