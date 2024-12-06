@@ -37,5 +37,5 @@ jobs:
           repo: ${{ github.event.repository.name }}
           owner: ${{ github.event.repository.owner.login }}
           merge_method: squash
-          headers:
-            authorization: ${{ secrets.GITHUB_TOKEN }}
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
