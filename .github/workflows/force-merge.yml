@@ -20,4 +20,8 @@ jobs:
               repo: context.repo.repo
             })
 
-            console.log(comments)
+            for(const comment of comments.data) {
+              console.log("Comment")
+              console.log(comment)
+              console.log(comment.user)
+            }
