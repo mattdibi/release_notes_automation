@@ -14,6 +14,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+
+            // TODO: Enhancement
+            // Check if issue is PR, if not skip the rest of the workflow
+            // see: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#get-an-issue
+
+            // List all comments
             const comments = await github.rest.issues.listComments({
               issue_number: context.issue.number,
               owner: context.repo.owner,
@@ -21,7 +27,6 @@ jobs:
             })
 
             const votes = new Map();
-
             for(const comment of comments.data) {
               const hasPermissions = comment.author_association === 'MEMBER' || comment.author_association === 'OWNER'
               const hasCastedVote = comment.body === '/force-merge'
