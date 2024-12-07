@@ -68,7 +68,7 @@ jobs:
             })
 
             // If quorum reached perform merge
-            if(votes.size >= 3) {
+            if(votes.size >= 1) {
               console.log("Reached quorum, performing force merge...")
 
               const result = await github.rest.pulls.merge({
