@@ -35,13 +35,24 @@ jobs:
             console.log(votes) // Debug
 
             // Add label to provide feedback about votes
-            const result = github.rest.issues.setLabels({
+            const labels = github.rest.issues.listLabelsOnIssue({
               issue_number: context.issue.number,
               owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: [ "force-merge-votes-" + votes.size ]
+              repo: context.repo.repo
             })
 
+            console.log(labels) // Debug
+
+            if(votes.size >= 1 && votes.size < 3) {
+              const result = github.rest.issues.setLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: [ "force-merge-votes-" + votes.size ]
+              })
+            }
+
+            // If quorum reached perform merge
             if(votes.size >= 3) {
               console.log("Reached quorum, performing force merge...")
 
