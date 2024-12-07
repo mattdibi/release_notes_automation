@@ -18,6 +18,8 @@ jobs:
             // TODO: Enhancement
             // Check if issue is PR, if not skip the rest of the workflow
             // see: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#get-an-issue
+            // For additional security, since we already have the info, we should check whether the author
+            // is a member of the org. If not skip the workflow.
 
             // List all comments
             const comments = await github.rest.issues.listComments({
