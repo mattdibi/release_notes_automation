@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check for /force-merge command
+      - name: Check for force-merge command
         id: check_force_merge
         uses: actions/github-script@v7
         with:
@@ -24,9 +24,7 @@ jobs:
             });
 
             // Check if the comment contains the /force-merge command and if the author is a member without accepting duplicates
-            const forceMergeComments = comments.filter(comment => comment.body.includes('/force-merge') && comment.user.type === 'User').map(comment => comment.user.login);
-
-            return { forceMergeComments };
+            console.log(comments);
 
       - name: Print the list of users who have used the force-merge command
         run: "echo \"Users who have used the force-merge command: ${{ steps.check_force_merge.outputs.forceMergeComments }}\""
