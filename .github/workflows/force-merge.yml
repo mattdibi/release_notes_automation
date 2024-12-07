@@ -24,7 +24,12 @@ jobs:
 
             for(const comment of comments.data) {
               const hasPermissions = comment.author_association === 'MEMBER' || comment.author_association === 'OWNER'
-              const hasCastedVode = comment.body === '/force-merge'
+              const hasCastedVote = comment.body === '/force-merge'
+
+              if(!hasPermissions || !hasCastedVote) {
+                continue;
+              }
+
               const username = comment.user.login
 
               if(votes.get(username)) {
