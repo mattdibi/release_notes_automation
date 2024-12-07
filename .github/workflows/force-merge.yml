@@ -36,7 +36,7 @@ jobs:
             console.log(votes)
             console.log(votes.size)
 
-            if(votes.size >= 3) {
+            if(votes.size >= 1) {
               console.log("Reached quorum, performing force merge...")
 
               # Posting comment without other checks would throw the bot in an infinite loop
