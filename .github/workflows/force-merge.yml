@@ -35,7 +35,7 @@ jobs:
             console.log(votes) // Debug
 
             // Add label to provide feedback about votes
-            const labels = github.rest.issues.listLabelsOnIssue({
+            const labels = await github.rest.issues.listLabelsOnIssue({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo
