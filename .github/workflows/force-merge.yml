@@ -42,13 +42,13 @@ jobs:
             })
             const labelsToAdd = []
             for(const label of labels.data) {
-              if(!label.name.startsWith('force-merge-votes-') {
+              if(!label.name.startsWith('force-merge-votes-')) {
                 labelsToAdd.push(label.name)
               }
             }
 
             if(votes.size >= 1 && votes.size < 3) {
-                labelsToAdd.add("force-merge-votes-" + votes.size)
+                labelsToAdd.push("force-merge-votes-" + votes.size)
             }
 
             console.log(labelsToAdd) // Debug
