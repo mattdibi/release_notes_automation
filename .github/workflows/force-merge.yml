@@ -38,14 +38,4 @@ jobs:
 
             if(votes.size >= 1) {
               console.log("Reached quorum, performing force merge...")
-
-              # Posting comment without other checks would throw the bot in an infinite loop
-              # since it triggers on comment creation, some more investigation is needed
-              #
-              # await github.rest.issues.createComment({
-              #   issue_number: context.issue.number,
-              #   owner: context.repo.owner,
-              #   repo: context.repo.repo,
-              #   body: 'Reached quorum, performing force merge...'
-              # })
             }
