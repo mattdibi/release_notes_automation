@@ -26,17 +26,26 @@ jobs:
               const hasPermissions = comment.author_association === 'MEMBER' || comment.author_association === 'OWNER'
               const hasCastedVote = comment.body === '/force-merge'
 
-              if(!hasPermissions || !hasCastedVote) {
-                continue;
-              }
-
-              const username = comment.user.login
-
-              if(votes.get(username)) {
-                votes.set(username, votes.get(username) + 1);
-              } else {
+              if(hasPermissions && hasCastedVote) {
+                const username = comment.user.login
                 votes.set(username, 1);
               }
             }
 
+            // Debug
             console.log(votes)
+            console.log(votes.size)
+
+            if(votes.size >= 3) {
+              console.log("Reached quorum, performing force merge...")
+
+              # Posting comment without other checks would throw the bot in an infinite loop
+              # since it triggers on comment creation, some more investigation is needed
+              #
+              # await github.rest.issues.createComment({
+              #   issue_number: context.issue.number,
+              #   owner: context.repo.owner,
+              #   repo: context.repo.repo,
+              #   body: 'Reached quorum, performing force merge...'
+              # })
+            }
