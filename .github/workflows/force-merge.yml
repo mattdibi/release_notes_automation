@@ -20,8 +20,18 @@ jobs:
               repo: context.repo.repo
             })
 
+            const votes = new Map();
+
             for(const comment of comments.data) {
-              console.log("Comment")
-              console.log(comment)
-              console.log(comment.user)
+              const hasPermissions = comment.author_association === 'MEMBER' || comment.author_association === 'OWNER'
+              const hasCastedVode = comment.body === '/force-merge'
+              const username = comment.user.login
+
+              if(votes.get(username)) {
+                votes.set(username, votes.get(username) + 1);
+              } else {
+                votes.set(username, 1);
+              }
             }
+
+            console.log(votes)
