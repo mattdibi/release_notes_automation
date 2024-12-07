@@ -32,10 +32,15 @@ jobs:
               }
             }
 
-            // Debug
-            console.log(votes)
-            console.log(votes.size)
+            console.log(votes) // Debug
 
             if(votes.size >= 1) {
               console.log("Reached quorum, performing force merge...")
+
+              const result = await octokit.rest.pulls.merge({
+                pull_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                merge_method: squash
+              });
             }
