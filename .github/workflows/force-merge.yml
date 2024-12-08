@@ -25,7 +25,7 @@ jobs:
             })
 
             const isPR = issue.data.pull_request != null
-            const isClosed = issue.data.pull_request.closed_at != null
+            const isClosed = issue.data.closed_at != null
             const isDraft = issue.data.draft
 
             return isPR && !isClosed && !isDraft
