@@ -1,9 +1,12 @@
 name: Force merge
-description: Merge a pull request when 3 committers post a comment with the command /force-merge
+description: Merge a pull request when N committers post a comment with the command /force-merge
 
 on:
   issue_comment:
     types: [created, edited]
+
+env:
+  quorum: 3
 
 jobs:
   force_merge:
@@ -65,7 +68,7 @@ jobs:
             }
 
             const votes = ${{ steps.count-votes.outputs.result }}
-            if(votes >= 1 && votes < 3) {
+            if(votes >= 1 && votes < ${{env.quorum}}) {
                 labelsToAdd.push("force-merge-votes-" + votes)
             }
 
@@ -77,9 +80,15 @@ jobs:
               labels: labelsToAdd
             })
 
+      - name: Check merge condition
+        id: merge-condition
+        with:
+          script: |
+            console.log(${{ steps.count-votes.outputs.result }} >= ${{env.quorum}}) // debug
+            return ${{ steps.count-votes.outputs.result }} >= ${{env.quorum}}
+
       - name: Perform merge
-        uses: actions/github-script@v7
-        if: ${{ steps.count-votes.outputs.result >= 3 }}
+        if: ${{ steps.merge-condition.outputs.result }}
         with:
           script: |
             await github.rest.pulls.merge({
