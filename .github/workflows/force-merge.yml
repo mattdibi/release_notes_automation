@@ -24,6 +24,8 @@ jobs:
               repo: context.repo.repo
             })
 
+            console.log(issue.data)
+
             const isPR = issue.data.pull_request != null
             const isNotMerged = isPR && issue.data.pull_request.merged_at == null
 
