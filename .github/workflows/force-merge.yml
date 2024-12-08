@@ -23,7 +23,6 @@ jobs:
 
             console.log("Checking PR")
 
-    steps:
       - name: Count votes
         id: count-votes
         uses: actions/github-script@v7
@@ -49,7 +48,6 @@ jobs:
 
             return votes.size
 
-    steps:
       - name: Set lables
         id: set-labels
         uses: actions/github-script@v7
@@ -83,7 +81,6 @@ jobs:
               labels: labelsToAdd
             })
 
-    steps:
       - name: Perform merge
         uses: actions/github-script@v7
         if: ${{ steps.count-votes.outputs.result >= 3 }}
