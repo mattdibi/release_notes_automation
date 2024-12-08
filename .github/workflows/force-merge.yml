@@ -51,7 +51,6 @@ jobs:
             return votes.size
 
       - name: Set lables
-        id: set-labels
         uses: actions/github-script@v7
         with:
           script: |
@@ -82,6 +81,7 @@ jobs:
 
       - name: Check merge condition
         id: merge-condition
+        uses: actions/github-script@v7
         with:
           script: |
             console.log(${{ steps.count-votes.outputs.result }} >= ${{env.quorum}}) // debug
@@ -89,6 +89,7 @@ jobs:
 
       - name: Perform merge
         if: ${{ steps.merge-condition.outputs.result }}
+        uses: actions/github-script@v7
         with:
           script: |
             await github.rest.pulls.merge({
