@@ -24,15 +24,11 @@ jobs:
               repo: context.repo.repo
             })
 
-            // TODO: Enhancement
-            // Check if issue is PR, if not skip the rest of the workflow
-            // see: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#get-an-issue
-            // For additional security, since we already have the info, we should check whether the author
-            // is a member of the org. If not skip the workflow.
+            const isPR = issue.data.pull_request != null
+            const isNotMerged = issue.data.pull_request.merged_at == null
 
-            console.log(issue)
-
-            console.log("Checking PR")
+            console.log(isPR)
+            console.log(isNotMerged)
 
       - name: Count votes
         id: count-votes
