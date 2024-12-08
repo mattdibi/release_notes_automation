@@ -30,6 +30,8 @@ jobs:
             const isClosed = issue.data.pull_request.closed_at != null
             const isDraft = issue.data.draft
 
+            console.log(isPR && !isClosed && !isDraft)
+
             return isPR && !isClosed && !isDraft
 
       - name: Count votes
