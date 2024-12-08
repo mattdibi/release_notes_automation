@@ -10,17 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List comments
+      - name: Check pull request
+        id: check-pr
         uses: actions/github-script@v7
         with:
           script: |
-
             // TODO: Enhancement
             // Check if issue is PR, if not skip the rest of the workflow
             // see: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#get-an-issue
             // For additional security, since we already have the info, we should check whether the author
             // is a member of the org. If not skip the workflow.
 
+            console.log("Checking PR")
+
+    steps:
+      - name: Count votes
+        id: count-votes
+        uses: actions/github-script@v7
+        with:
+          script: |
             // List all comments
             const comments = await github.rest.issues.listComments({
               issue_number: context.issue.number,
@@ -39,8 +47,14 @@ jobs:
               }
             }
 
-            console.log(votes) // Debug
+            return votes.size
 
+    steps:
+      - name: Set lables
+        id: set-labels
+        uses: actions/github-script@v7
+        with:
+          script: |
             // Add label to provide feedback about votes
             const labels = await github.rest.issues.listLabelsOnIssue({
               issue_number: context.issue.number,
@@ -54,7 +68,9 @@ jobs:
               }
             }
 
-            if(votes.size >= 1 && votes.size < 3) {
+            const votes = ${{ steps.count-votes.outputs.result }}
+            console.log(votes) // Debug
+            if(votes >= 1 && votes < 3) {
                 labelsToAdd.push("force-merge-votes-" + votes.size)
             }
 
@@ -67,14 +83,15 @@ jobs:
               labels: labelsToAdd
             })
 
-            // If quorum reached perform merge
-            if(votes.size >= 3) {
-              console.log("Reached quorum, performing force merge...")
-
-              const result = await github.rest.pulls.merge({
-                pull_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                merge_method: "squash"
-              });
-            }
+    steps:
+      - name: Perform merge
+        uses: actions/github-script@v7
+        if: ${{ steps.count-votes.outputs.result >= 3 }}
+        with:
+          script: |
+            await github.rest.pulls.merge({
+              pull_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              merge_method: "squash"
+            });
