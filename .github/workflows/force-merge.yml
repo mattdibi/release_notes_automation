@@ -24,13 +24,9 @@ jobs:
               repo: context.repo.repo
             })
 
-            console.log(issue.data)
-
             const isPR = issue.data.pull_request != null
             const isClosed = issue.data.pull_request.closed_at != null
             const isDraft = issue.data.draft
-
-            console.log(isPR && !isClosed && !isDraft)
 
             return isPR && !isClosed && !isDraft
 
@@ -60,7 +56,7 @@ jobs:
             return votes.size
 
       - name: Set lables
-        if: ${{ steps.should-run.outputs.result == true }}
+        if: ${{ steps.should-run.outputs.result == 'true' }}
         uses: actions/github-script@v7
         with:
           script: |
@@ -89,8 +85,9 @@ jobs:
               labels: labelsToAdd
             })
 
+      # FIXME: This step is probably unnecessary
       - name: Check merge condition
-        if: ${{ steps.should-run.outputs.result == true }}
+        if: ${{ steps.should-run.outputs.result == 'true' }}
         id: merge-condition
         uses: actions/github-script@v7
         with:
@@ -98,7 +95,7 @@ jobs:
             return ${{ steps.count-votes.outputs.result }} >= ${{env.quorum}}
 
       - name: Perform merge
-        if: ${{ steps.merge-condition.outputs.result == true }}
+        if: ${{ steps.merge-condition.outputs.result == 'true' }}
         uses: actions/github-script@v7
         with:
           script: |
