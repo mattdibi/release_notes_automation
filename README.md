@@ -10,4 +10,4 @@ Features:
 - Release Notes Generation Action ([Handlebars docs](http://jknack.github.io/handlebars.java/))
 - [Backport Action v2](https://github.com/tibdex/backport) with updated template
 
-Note: this is now a testing field for Github and git related features and workflows
+Note: this is now a testing field for Github and git related features and workflows, not restricted on the Release Notes Automation anymore.
