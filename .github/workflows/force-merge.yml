@@ -49,9 +49,12 @@ jobs:
 
               if(hasPermissions && hasCastedVote) {
                 const username = comment.user.login
-                votes.set(username, 1);
+                votes.set(username, comment.author_association);
               }
             }
+
+            // Display voters and role
+            console.table(votes)
 
             return votes.size
 
