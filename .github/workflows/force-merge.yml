@@ -6,7 +6,7 @@ on:
     types: [created, edited]
 
 env:
-  quorum: 3
+  quorum: 1
 
 jobs:
   force_merge:
