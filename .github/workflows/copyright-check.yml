@@ -21,7 +21,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install copyright-check
-        run: pip install https://github.com/mattdibi/copyright-check/releases/download/0.1.0/copyright_check-0.1.0-py3-none-any.whl
+        run: pip install https://github.com/mattdibi/copyright-check/releases/download/0.1.1/copyright_check-0.1.1-py3-none-any.whl
 
       - name: Run check
         run: copyright-check -c .github/copyright-config.yml $(git diff --name-only HEAD^1 HEAD)
