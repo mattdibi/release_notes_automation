@@ -3,8 +3,8 @@ name: Copyright check
 on:
   pull_request:
     types: [opened, reopened, edited]
-  branches:
-    - 'master'
+    branches:
+      - 'master'
 
 jobs:
   deploy-docs:
