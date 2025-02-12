@@ -5,23 +5,10 @@ on:
     types: [opened, reopened, synchronize]
     branches:
       - 'master'
+      - 'main'
+      - 'develop'
+      - 'release-*'
 
 jobs:
-  copyright-check:
-    runs-on: ubuntu-latest
-    steps:
-
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
-
-      - name: Install copyright-check
-        run: pip install https://github.com/mattdibi/copyright-check/releases/download/0.1.1/copyright_check-0.1.1-py3-none-any.whl
-
-      - name: Run check
-        run: copyright-check -c .github/copyright-config.yml $(git diff --name-only HEAD^1 HEAD)
+  call-workflow-in-public-repo:
+    uses: eclipse-kura/.github/.github/workflows/_shared-copyright-check.yml@main
