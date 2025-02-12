@@ -13,4 +13,4 @@ jobs:
   call-workflow-in-public-repo:
     uses: eclipse-kura/.github/.github/workflows/_shared-copyright-check.yml@main
     with:
-      config-path: '.github/actions/setup/copyright-check.yml'
+      config-path: '.github/actions/setup/copyright-config.yml'
